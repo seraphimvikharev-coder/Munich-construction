@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munich Construction — Astillero · Amarradero · Puerto</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#C8181A;
+  --red-dark:#8B0F10;
+  --red-bright:#E82022;
+  --black:#0A0A0A;
+  --black2:#111111;
+  --gray:#1A1A1A;
+  --gray2:#242424;
+  --light:#F5F0E8;
+  --muted:#999;
+  --font-heading:'Bebas Neue',sans-serif;
+  --font-body:'Barlow',sans-serif;
+  --font-cond:'Barlow Condensed',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--light);font-family:var(--font-body);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(10,10,10,0.95);border-bottom:2px solid var(--red);display:flex;align-items:center;justify-content:space-between;padding:14px 48px}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon{width:44px;height:44px;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:22px;color:#fff;letter-spacing:1px}
+.nav-brand{font-family:var(--font-cond);font-size:18px;font-weight:900;color:#fff;letter-spacing:2px;line-height:1.1}
+.nav-brand span{color:var(--red);display:block;font-size:11px;letter-spacing:4px;font-weight:700}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-family:var(--font-cond);font-size:13px;letter-spacing:2px;font-weight:700;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{background:var(--red);color:#fff;padding:10px 24px;font-family:var(--font-cond);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s}
+.nav-cta:hover{background:var(--red-bright)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;padding:0 48px 80px}
+.hero-bg{position:absolute;inset:0;background:
+  linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 60%, rgba(10,10,10,0.97) 100%),
+  repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(200,24,26,0.04) 80px,rgba(200,24,26,0.04) 81px),
+  repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(200,24,26,0.04) 80px,rgba(200,24,26,0.04) 81px);
+background-color:#0D0D0D}
+.hero-watermark{position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-family:var(--font-heading);font-size:340px;color:rgba(200,24,26,0.06);line-height:1;pointer-events:none;white-space:nowrap}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);padding:6px 16px;font-family:var(--font-cond);font-size:11px;letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-badge::before{content:'★';margin-right:4px;font-size:9px}
+.hero h1{font-family:var(--font-heading);font-size:clamp(72px,10vw,140px);line-height:0.92;color:#fff;position:relative;z-index:1;margin-bottom:24px}
+.hero h1 .accent{color:var(--red);display:block}
+.hero-sub{font-family:var(--font-cond);font-size:16px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;position:relative;z-index:1;margin-bottom:40px;max-width:500px;line-height:1.6}
+.hero-actions{display:flex;gap:16px;position:relative;z-index:1;align-items:center}
+.btn-primary{background:var(--red);color:#fff;padding:16px 40px;font-family:var(--font-cond);font-weight:700;font-size:14px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--red-bright);transform:translateY(-1px)}
+.btn-outline{border:1px solid rgba(245,240,232,0.25);color:var(--light);padding:16px 40px;font-family:var(--font-cond);font-weight:700;font-size:14px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;display:inline-block;cursor:pointer}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.hero-scroll{position:absolute;bottom:32px;right:48px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1}
+.hero-scroll span{font-family:var(--font-cond);font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;writing-mode:vertical-rl}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--red),transparent)}
+
+/* STATS STRIP */
+.stats-strip{background:var(--red);display:grid;grid-template-columns:repeat(4,1fr);padding:0}
+.stat-item{padding:28px 32px;border-right:1px solid rgba(255,255,255,0.15);text-align:center}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:var(--font-heading);font-size:52px;color:#fff;line-height:1}
+.stat-label{font-family:var(--font-cond);font-size:11px;letter-spacing:3px;color:rgba(255,255,255,0.7);text-transform:uppercase;margin-top:4px;font-weight:700}
+
+/* SERVICIOS */
+.section{padding:100px 48px}
+.section-header{margin-bottom:64px}
+.section-tag{font-family:var(--font-cond);font-size:11px;letter-spacing:4px;color:var(--red);text-transform:uppercase;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.section-tag::before{content:'';display:block;width:32px;height:2px;background:var(--red)}
+.section-title{font-family:var(--font-heading);font-size:clamp(48px,6vw,80px);color:#fff;line-height:0.95;max-width:600px}
+.section-title .accent{color:var(--red)}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray)}
+.service-card{background:var(--black2);padding:48px 40px;position:relative;overflow:hidden;transition:background 0.3s;cursor:default}
+.service-card:hover{background:var(--gray2)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--red);transition:width 0.4s}
+.service-card:hover::before{width:100%}
+.service-icon{font-size:40px;margin-bottom:28px;display:block}
+.service-num{position:absolute;top:32px;right:32px;font-family:var(--font-heading);font-size:80px;color:rgba(200,24,26,0.08);line-height:1}
+.service-name{font-family:var(--font-heading);font-size:32px;color:#fff;margin-bottom:12px;line-height:1.05}
+.service-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:400}
+
+/* SOBRE */
+.sobre{background:var(--gray2);display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:600px}
+.sobre-text{padding:80px 64px}
+.sobre-visual{background:var(--black);position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sobre-visual-bg{position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(200,24,26,0.03) 20px,rgba(200,24,26,0.03) 21px)}
+.sobre-emblem{width:200px;height:200px;border:2px solid var(--red);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.sobre-emblem::before{content:'';position:absolute;inset:8px;border:1px solid rgba(200,24,26,0.3)}
+.sobre-emblem-text{font-family:var(--font-heading);font-size:72px;color:var(--red);line-height:1}
+.sobre-text p{color:#b0a898;line-height:1.9;margin-bottom:20px;font-size:15px}
+.highlight-list{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.highlight-list li{display:flex;align-items:center;gap:12px;font-family:var(--font-cond);font-size:14px;letter-spacing:1px;color:var(--light);font-weight:600}
+.highlight-list li::before{content:'';width:20px;height:2px;background:var(--red);flex-shrink:0}
+
+/* HORARIO & CONTACTO */
+.info-section{background:var(--black);display:grid;grid-template-columns:1fr 1fr;gap:1px;background-color:var(--gray)}
+.info-block{background:var(--black2);padding:64px 48px}
+.info-block h3{font-family:var(--font-heading);font-size:36px;color:#fff;margin-bottom:32px}
+.hours-grid{display:grid;grid-template-columns:1fr auto;gap:0}
+.hours-row{display:contents}
+.hours-row .day{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-family:var(--font-cond);font-size:14px;letter-spacing:1px;color:var(--muted);font-weight:600;text-transform:uppercase}
+.hours-row .time{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-family:var(--font-cond);font-size:14px;font-weight:700;color:var(--light);text-align:right}
+.hours-row.domingo .day,.hours-row.domingo .time{color:var(--red)}
+.contact-items{display:flex;flex-direction:column;gap:20px;margin-top:8px}
+.contact-item{display:flex;align-items:flex-start;gap:16px}
+.contact-icon{width:40px;height:40px;background:rgba(200,24,26,0.15);border:1px solid rgba(200,24,26,0.3);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:18px;flex-shrink:0}
+.contact-label{font-family:var(--font-cond);font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;font-weight:700;margin-bottom:4px}
+.contact-val{font-size:15px;color:var(--light);font-weight:500}
+
+/* RESEÑAS */
+.reviews-section{padding:100px 48px;background:var(--black)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gray);margin-top:64px}
+.review-card{background:var(--black2);padding:40px 36px}
+.stars{color:var(--red);font-size:20px;letter-spacing:2px;margin-bottom:20px}
+.review-text{font-size:15px;color:#b0a898;line-height:1.8;margin-bottom:24px;font-style:italic}
+.review-author{font-family:var(--font-cond);font-size:13px;letter-spacing:2px;color:var(--light);font-weight:700;text-transform:uppercase}
+.review-role{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* CTA FINAL */
+.cta-final{background:var(--red-dark);padding:100px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'MUNICH';position:absolute;font-family:var(--font-heading);font-size:280px;color:rgba(255,255,255,0.04);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none}
+.cta-final h2{font-family:var(--font-heading);font-size:clamp(56px,8vw,100px);color:#fff;line-height:0.95;margin-bottom:24px;position:relative;z-index:1}
+.cta-final p{color:rgba(255,255,255,0.6);font-size:16px;max-width:480px;margin:0 auto 48px;position:relative;z-index:1;line-height:1.7}
+.cta-final .btn-primary{background:#fff;color:var(--red-dark);position:relative;z-index:1;font-size:15px}
+.cta-final .btn-primary:hover{background:var(--light)}
+
+/* FOOTER */
+footer{background:var(--black);border-top:2px solid var(--gray);padding:40px 48px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-family:var(--font-heading);font-size:28px;color:#fff;letter-spacing:2px}
+.footer-logo span{color:var(--red)}
+.footer-info{font-size:13px;color:var(--muted);text-align:center;line-height:1.8}
+.footer-rating{display:flex;align-items:center;gap:8px;font-family:var(--font-cond);font-size:24px;font-weight:900;color:var(--red)}
+.footer-rating span{font-size:13px;color:var(--muted);font-weight:400;font-family:var(--font-body)}
+
+@media(max-width:768px){
+nav{padding:14px 20px}
+.nav-links{display:none}
+.hero{padding:0 20px 60px}
+.stats-strip{grid-template-columns:repeat(2,1fr)}
+.section{padding:60px 20px}
+.services-grid{grid-template-columns:1fr}
+.sobre{grid-template-columns:1fr}
+.sobre-visual{min-height:200px}
+.info-section{grid-template-columns:1fr}
+.reviews-grid{grid-template-columns:1fr}
+.cta-final{padding:60px 20px}
+footer{flex-direction:column;gap:20px;text-align:center;padding:32px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">MC</div>
+    <div class="nav-brand">Munich Construction
+      <span>Astillero · Amarradero · Puerto</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#reseñas">Reseñas</a></li>
+  </ul>
+  <a class="nav-cta" href="#contacto">Consultar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-watermark">PUERTO</div>
+  <div class="hero-badge">Villa Elisa, Paraguay — Paso Medin</div>
+  <h1>ASTILLERO<br><span class="accent">MÜNCHEN</span><br>CONSTRUCTION</h1>
+  <p class="hero-sub">Amarradero · Astillero · Puerto · Construcción Naval<br>Servicio Profesional desde el Río</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#contacto">Solicitar Presupuesto</a>
+    <a class="btn-outline" href="#servicios">Ver Servicios</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">5.0</div>
+    <div class="stat-label">Calificación Google</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Reseñas Verificadas</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">7</div>
+    <div class="stat-label">Días de Servicio</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Años de Experiencia</div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
+  <div class="section-header">
+    <div class="section-tag">Nuestros Servicios</div>
+    <h2 class="section-title">LO QUE<br><span class="accent">HACEMOS</span></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-icon">⚓</div>
+      <div class="service-name">Astillero</div>
+      <p class="service-desc">Construcción, reparación y mantenimiento de embarcaciones fluviales y navales. Infraestructura completa para trabajos de carena y varadero.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-icon">🔗</div>
+      <div class="service-name">Amarradero</div>
+      <p class="service-desc">Servicio de amarre seguro para embarcaciones de todo tipo. Instalaciones adaptadas para estadías cortas y largas con vigilancia permanente.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-icon">🚢</div>
+      <div class="service-name">Puerto</div>
+      <p class="service-desc">Operaciones portuarias fluviales. Carga, descarga y logística de mercancías con acceso directo a vías navegables del Paraguay.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-icon">🔧</div>
+      <div class="service-name">Construcción Naval</div>
+      <p class="service-desc">Diseño y construcción de embarcaciones a medida. Estructuras metálicas navales con materiales de alta durabilidad para uso fluvial intensivo.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-icon">🛡️</div>
+      <div class="service-name">Mantenimiento</div>
+      <p class="service-desc">Servicios de mantenimiento preventivo y correctivo. Pintura anticorrosiva, motores, sistemas de propulsión y cascos para toda clase de botes.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-icon">📋</div>
+      <div class="service-name">Gestión Portuaria</div>
+      <p class="service-desc">Asesoramiento y gestión de documentación fluvial. Trámites de habilitación, seguros y cumplimiento normativo de embarcaciones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section class="sobre" id="sobre">
+  <div class="sobre-text">
+    <div class="section-tag">Sobre Nosotros</div>
+    <h2 class="section-title" style="font-size:clamp(40px,5vw,64px);margin-bottom:32px">MUNICH<br><span class="accent">CONSTRUCTION</span></h2>
+    <p>Somos un astillero y amarradero ubicado en Paso Medin, Villa Elisa, con amplia trayectoria en el sector naval fluvial paraguayo. Brindamos servicios integrales para embarcaciones de trabajo, transporte y recreación.</p>
+    <p>Nuestra fortaleza radica en la experiencia técnica de nuestro equipo y la infraestructura portuaria propia, que nos permite ofrecer soluciones completas desde la construcción hasta el mantenimiento.</p>
+    <ul class="highlight-list">
+      <li>Calificación perfecta 5.0 en Google Maps</li>
+      <li>Ubicación estratégica en Villa Elisa, Paraguay</li>
+      <li>Atención 7 días a la semana</li>
+      <li>Infraestructura portuaria propia</li>
+    </ul>
+  </div>
+  <div class="sobre-visual">
+    <div class="sobre-visual-bg"></div>
+    <div class="sobre-emblem">
+      <div class="sobre-emblem-text">MC</div>
+    </div>
+  </div>
+</section>
+
+<!-- HORARIO & CONTACTO -->
+<div class="info-section" id="contacto">
+  <div class="info-block">
+    <h3>Horarios</h3>
+    <div class="hours-grid">
+      <div class="hours-row"><div class="day">Lunes</div><div class="time">6:00 — 18:00</div></div>
+      <div class="hours-row"><div class="day">Martes</div><div class="time">6:00 — 18:00</div></div>
+      <div class="hours-row"><div class="day">Miércoles</div><div class="time">6:00 — 18:00</div></div>
+      <div class="hours-row"><div class="day">Jueves</div><div class="time">6:00 — 18:00</div></div>
+      <div class="hours-row"><div class="day">Viernes</div><div class="time">6:00 — 18:00</div></div>
+      <div class="hours-row"><div class="day">Sábado</div><div class="time">6:00 — 18:00</div></div>
+      <div class="hours-row domingo"><div class="day">Domingo</div><div class="time">6:00 — 23:30</div></div>
+    </div>
+  </div>
+  <div class="info-block">
+    <h3>Contacto</h3>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Teléfono / WhatsApp</div>
+          <div class="contact-val">0984 625 220</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Dirección</div>
+          <div class="contact-val">Paso Medin, Villa Elisa 111517<br>Paraguay</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🗺️</div>
+        <div>
+          <div class="contact-label">Coordenadas Plus Code</div>
+          <div class="contact-val">JC33+97 Villa Elisa</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">⭐</div>
+        <div>
+          <div class="contact-label">Calificación Google</div>
+          <div class="contact-val">5.0 / 5.0 — 12 reseñas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEÑAS -->
+<section class="reviews-section" id="reseñas">
+  <div class="section-header">
+    <div class="section-tag">Lo que dicen</div>
+    <h2 class="section-title">CLIENTES<br><span class="accent">SATISFECHOS</span></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Excelente lugar, buen servicio y buena gestión. Recomiendo ampliamente sus servicios para el mantenimiento de embarcaciones."</p>
+      <div class="review-author">Christian Wolf</div>
+      <div class="review-role">Local Guide · Google Maps</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Excelente atención desde el primer momento. Personal capacitado y muy amable. Las instalaciones son de primera calidad."</p>
+      <div class="review-author">Tamara Maciel Soloaga</div>
+      <div class="review-role">Local Guide · Google Maps</div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"El astillero más completo de la zona. Infraestructura sólida, equipo profesional y acceso directo al río. Totalmente recomendado."</p>
+      <div class="review-author">Manuel Portillo</div>
+      <div class="review-role">Local Guide · Google Maps</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final">
+  <h2>¿LISTO PARA<br>ZARPAR?</h2>
+  <p>Contactanos hoy para una consulta sin compromiso. Servicios de astillero, amarradero y construcción naval en Villa Elisa.</p>
+  <a class="btn-primary" href="tel:0984625220">Llamar: 0984 625 220</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MUNICH<span> MC</span></div>
+  <div class="footer-info">
+    Paso Medin, Villa Elisa 111517, Paraguay<br>
+    Astillero · Amarradero · Puerto · Munich Construction
+  </div>
+  <div class="footer-rating">5.0 <span>⭐ 12 reseñas en Google</span></div>
+</footer>
+
+</body>
+</html>
